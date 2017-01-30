@@ -1,0 +1,81 @@
+pan-select {
+	div.wheel-container {
+		display: block;
+		margin: 0 auto;
+		height: 300px;
+		background-color: transparent;
+
+		div.wheel {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+
+			div.selected-item-container, div.selected-item-container div.outer, div.selected-item-container div.outer div.inner, div.stage {
+				width: 100%;
+			}
+
+			div.selected-item-container, div.selected-item-container div.outer {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			div.selected-item-container {
+				z-index: 10;
+				position: absolute;
+				left: 0;
+				background-color: transparent;
+
+				div.outer, div.outer, div.inner {
+					border-radius: 50%;
+					height: 100%;
+				}
+
+				div.outer {
+					border: 10px solid color($colors, boxshadow);
+
+					div.inner {
+						border: 10px solid color($colors, orange);
+					}
+				}
+			}
+
+			div.stage, div.stage div.carousel {
+				position: relative;
+			}
+
+			div.stage {
+				height: 100%;
+
+				div.carousel {
+					margin: 0 auto;
+
+					&.velocity {
+						transition: transform 350ms ease-out;
+					}
+
+					&.rounding {
+						transition: transform 250ms ease-out;
+					}
+
+					div.item {
+						width: 100%;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						padding: 0;
+						font-size: 40px;
+						background-color: transparent;
+						margin: 0;
+						color: darken(color($colors, yellow), 20%);
+
+						&.selected {
+							color: black;
+						}
+					}
+				}
+			}
+		}
+	}
+}

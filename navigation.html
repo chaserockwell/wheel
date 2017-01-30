@@ -1,0 +1,13 @@
+<div class="wheel-container">
+	<div class="wheel" #wheel>
+		<div class="stage">
+			<div class="carousel" [ngStyle]="{'transform': translateX}">
+				<div class="item" *ngFor="let item of activeItems; let i = index" (click)="goToComp(item)" [ngStyle]="{'transform': 'translateY(' + translations['item' + (i + 1)] + 'px)'}">
+					<span *ngIf="item.icon" [class]="item.icon"></span>
+					<span *ngIf="item.avatar" class="child" [ngStyle]="{'background-image': 'url(' + item.avatar + ')'}"></span>
+					<span *ngIf="!item.avatar && !item.icon" class="child" [ngStyle]="{'background-image': 'url(assets/placeholders/user.png)'}"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

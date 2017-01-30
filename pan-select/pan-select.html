@@ -1,0 +1,16 @@
+<div class="wheel-container" [ngStyle]="{'width': wheelWidth + 'px'}">
+	<div class="wheel" #wheel>
+		<div class="selected-item-container" [ngStyle]="{'top': itemHeight + 'px', 'height': itemHeight + 'px'}">
+			<div class="outer">
+				<div class="inner"></div>
+			</div>
+		</div>
+		<div class="stage">
+			<div class="carousel" [ngStyle]="{'transform': translateY}" [ngClass]="{'rounding': isRounding, 'velocity': isVelocityPan}">
+				<div class="item" *ngFor="let item of items; let i = index" [ngClass]="{'selected': selectedItemIndex === i}" [ngStyle]="{'height': itemHeight + 'px'}">
+					{{item}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
